@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio Photographe - Élégant & Moderne</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;900&display=swap');
+
+  /* Reset & base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #571818;
+    color: #222;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Container max width */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(255 255 255 / 0.95);
+    backdrop-filter: saturate(180%) blur(12px);
+    box-shadow: 0 2px 12px rgb(0 0 0 / 0.07);
+    z-index: 1000;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+  }
+  .logo {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #301dda, #e42525);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+  }
+  ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2.5rem;
+  }
+  ul.nav-links li a {
+    text-decoration: none;
+    color: #3a35db;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    transition: color 0.3s ease;
+  }
+  ul.nav-links li a:hover,
+  ul.nav-links li a:focus {
+    color: #110303;
+    outline-offset: 4px;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 140px 0 100px 0;
+    background-image: url(./cesar1.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+  }
+  .hero h1 {
+    font-size: 3.5rem;
+    max-width: 700px;
+    margin: 0 auto 1rem auto;
+    font-weight: 900;
+    line-height: 1.1;
+  }
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgba(255 255 255 / 0.85);
+  }
+
+  /* Gallery */
+  .gallery {
+    padding: 80px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 32px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 12px 18px rgb(0 0 0 / 0.08);
+    cursor: pointer;
+    background: white;
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
+  }
+  .gallery-item:hover,
+  .gallery-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 28px rgb(0 0 0 / 0.15);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    display: block;
+  }
+  .gallery-caption {
+    padding: 1rem 1.25rem 1.5rem 1.25rem;
+  }
+  .gallery-caption h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #0f4c81;
+  }
+  .gallery-caption p {
+    font-size: 0.9rem;
+    color: #030702;
+    line-height: 1.4;
+  }
+
+  /* About Section */
+  .about {
+    padding: 0 0 80px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .about h2 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #26d623;
+  }
+  .about p {
+    font-size: 1.1rem;
+    color: #2ae5eb;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* Contact Section */
+  .contact {
+    background: #1f8a70;
+    color: white;
+    padding: 80px 0;
+  }
+  .contact h2 {
+    font-size: 2.75rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  form {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  label {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    display: block;
+  }
+  input, textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: none;
+    outline-offset: 2px;
+    transition: box-shadow 0.3s ease;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    box-shadow: 0 0 0 4px rgba(31,138,112,0.6);
+  }
+  textarea {
+    min-height: 120px;
+  }
+  button.submit-btn {
+    background: white;
+    color: #1f8a70;
+    font-weight: 700;
+    padding: 14px 0;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    font-size: 1.15rem;
+    transition: background-color 0.3s ease, transform 0.25s ease;
+  }
+  button.submit-btn:hover,
+  button.submit-btn:focus {
+    background-color: #16975d;
+    color: white;
+    outline-offset: 4px;
+    transform: translateY(-2px);
+  }
+
+  /* Footer */
+  footer {
+    background: #21e924;
+    color: rgb(133, 41, 237);
+    text-align: center;
+    padding: 24px 0;
+    font-size: 0.875rem;
+    user-select: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .gallery-item img {
+      height: 180px;
+    }
+    .about h2, .contact h2 {
+      font-size: 2rem;
+    }
+    form {
+      padding: 0 12px;
+    }
+  }
+  @media (max-width: 480px) {
+    nav {
+      padding: 1rem 1.25rem;
+    }
+    ul.nav-links {
+      gap: 1.25rem;
+    }
+    .hero p {
+      font-size: 1rem;
+      max-width: 90vw;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container" role="navigation" aria-label="Navigation principale">
+    <a href="#" class="logo" tabindex="0">CESAR-PHOTOGRAPHY007</a>
+    <ul class="nav-links">
+      <li><a href="#hero" tabindex="0">Accueil</a></li>
+      <li><a href="#gallery" tabindex="0">Galerie</a></li>
+      <li><a href="#about" tabindex="0">À propos</a></li>
+      <li><a href="#contact" tabindex="0">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="hero" tabindex="-1">
+  <div class="container">
+    <h1>Capturer l’instant, révéler l’âme</h1>
+    <p>Photographies artistiques et professionnelles qui racontent vos histoires avec émotion et esthétique.</p>
+  </div>
+</section>
+
+<section class="gallery container" id="gallery" aria-label="Galerie de photos du photographe">
+  <article class="gallery-item" tabindex="0">
+    <img src="cesar1.JPG" alt="Portrait élégant d'une femme avec lumière douce" loading="lazy" />
+    <div class="gallery-caption">
+      <h3>Portrait Élegant</h3>
+      <p>Un portrait mettant en valeur la douceur et caractère à travers un jeu subtil de lumière.</p>
+    </div>
+  </article>
+  <article class="gallery-item" tabindex="0">
+    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/acf449ca-90c9-43fa-8447-164294657405.png" alt="Paysage naturel mystique avec forêt brumeuse au lever du jour" loading="lazy" />
+    <div class="gallery-caption">
+      <h3>Paysage Mystique</h3>
+      <p>Capture d’une forêt enveloppée de brume à l’aube, soulignant la beauté mystérieuse de la nature.</p>
+    </div>
+  </article>
+  <article class="gallery-item" tabindex="0">
+    <img src="belle.jpg" alt="Photo en noir et blanc d'un décor urbain avec un jeu fort d'ombres et lumières" loading="lazy" />
+    <div class="gallery-caption">
+      <h3>Décor Urbain</h3>
+      <p>Jeu dramatique entre ombre et lumière dans un paysage urbain monochrome.</p>
+    </div>
+  </article>
+  <article class="gallery-item" tabindex="0">
+    <img src="black .JPG" alt="Composition artistique de fleurs délicates en nature morte avec lumière naturelle" loading="lazy" />
+    <div class="gallery-caption">
+      <h3>Nature Morte Florale</h3>
+      <p>Composition subtile révélant la finesse et texture des fleurs sous une lumière douce.</p>
+    </div>
+  </article>
+</section>
+
+<section class="about container" id="about" aria-label="À propos du photographe">
+  <h2>À propos de moi</h2>
+  <p>je suis César , photographe passionne par la capture de l'instant présent. mon obectif est de révéler la beauté cachée dans les moment simples, les émotion sincères et les détails souvent ignorés. chaque image que je crée est une invitation à voir le monde autrement merçi. </p>
+</section>
+
+<section class="contact" id="contact" aria-label="Formulaire de contact photographe">
+  <div class="container">
+    <h2>Contactez-moi</h2>
+    <form aria-label="Formulaire pour contacter le photographe" novalidate>
+      <label for="name">Nom complet</label>
+      <input id="name" name="name" type="text" placeholder="Votre nom" required autocomplete="name" />
+      
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="exemple@domaine.com" required autocomplete="email" />
+      
+      <label for="message">Votre message</label>
+      <textarea id="message" name="message" placeholder="Écrivez votre message ici..." required></textarea>
+      
+      <button type="submit" class="submit-btn" aria-label="Envoyer le message">Envoyer</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; Cesar-photography007. Tous droits réservés.</p>
+</footer>
+
+</body>
+</html>
+
